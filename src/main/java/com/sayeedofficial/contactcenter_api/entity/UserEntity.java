@@ -59,6 +59,24 @@ public class UserEntity {
     @Column(name = "updated_at", nullable = false)
     private Instant updatedAt;
 
+     public UserEntity(
+            String fullName,
+            String email,
+            String phoneNumber,
+            String employeeCode,
+            String externalIdentityId,
+            String timeZone,
+            UserStatus status
+    ) {
+        this.fullName = fullName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.employeeCode = employeeCode;
+        this.externalIdentityId = externalIdentityId;
+        this.timeZone = timeZone;
+        this.status = status;
+    }
+
     @PrePersist
     void onCreate() {
         Instant now = Instant.now();
